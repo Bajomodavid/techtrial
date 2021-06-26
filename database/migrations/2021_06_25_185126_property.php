@@ -34,6 +34,8 @@ class Property extends Migration
             $table->tinyInteger("type");
             $table->string("for_sale", 10);
             $table->timestamps();
+
+            $table->index(['type', 'created_at']);
         });
     }
 
@@ -44,6 +46,6 @@ class Property extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('properties');
     }
 }

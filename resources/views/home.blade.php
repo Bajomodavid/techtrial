@@ -32,7 +32,7 @@
                     <select class="form-control ml-2" name="type">
                         <option value="">Select Property type</option>
                         @foreach ($types as $t)
-                            <option> {{$t->title}} </option>
+                            <option value="{{$t->id}}"> {{$t->title}} </option>
                         @endforeach
                     </select>
                     <div class="form-group ml-3">

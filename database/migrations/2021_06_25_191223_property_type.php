@@ -20,6 +20,8 @@ class PropertyType extends Migration
             $table->string("title", 80);
             $table->text("description");
             $table->timestamps();
+
+            $table->index(['id', 'created_at']);
         });
     }
 
@@ -30,6 +32,6 @@ class PropertyType extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('property_types');
     }
 }
