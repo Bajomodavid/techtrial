@@ -17,20 +17,23 @@ class Property extends Migration
         Schema::create('properties', function(Blueprint $table)
         {
             $table->increments("id");
+            $table->string("uuid");
             $table->string("county", 80);
             $table->string("country", 100);
             $table->string("town");
-            $table->string("description");
+            $table->text("description");
             $table->string("address");
             $table->string("image");
             $table->string("thumbnail");
-            $table->double("latitude");
-            $table->double("longitude");
+            $table->string("latitude")->nullable();
+            $table->string("longitude")->nullable();
             $table->integer("bedrooms");
             $table->integer("bathrooms");
+            $table->integer("page")->default(1);
             $table->double("price");
-            $table->string("type", 100);
-            $table->boolean("for_sale");
+            $table->tinyInteger("type");
+            $table->string("for_sale", 10);
+            $table->timestamps();
         });
     }
 
