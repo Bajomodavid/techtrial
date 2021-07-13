@@ -14,13 +14,12 @@ class PropertyType extends Migration
     public function up()
     {
         //
-        Schema::create('property_types', function(Blueprint $table)
-        {
-            $table->integer("id");
+        Schema::create('property_types', function (Blueprint $table) {
+            $table->increments("id");
+            $table->integer("type_id");
             $table->string("title", 80);
             $table->text("description");
             $table->timestamps();
-
             $table->index(['id', 'created_at']);
         });
     }
